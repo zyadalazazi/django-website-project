@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from makeup.views import welcome_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('main/', welcome_page)
 ]
