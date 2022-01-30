@@ -19,5 +19,7 @@ from makeup.views import welcome_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', welcome_page)
+    path('home/', welcome_page),
+    path('brands/', welcome_page),
+    path('products/', welcome_page)
 ]
