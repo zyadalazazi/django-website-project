@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from makeup.views import welcome_page
+from makeup.views import welcome_page, product_list, brand_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', welcome_page),
-    path('brands/', welcome_page),
-    path('products/', welcome_page)
+    path('brands/', brand_list),
+    path('products/', product_list)
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -27,4 +27,9 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         pass
+
+
+# class PostUser(User):
+#     mobile_number
+
 

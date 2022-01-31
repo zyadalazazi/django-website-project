@@ -1,3 +1,11 @@
+body{
+    background-color: #ffffff;
+}
+
+.main{
+    color: #000000;
+    font-family: Cursive;
+}
 
 .sidenav{
     height:100%;
@@ -6,9 +14,10 @@
     z-index:1;
     top:0;
     left:0;
-    background-color:#6610f2;
+    background-color: #dfc2c4;
     overflow-x:hidden;
     padding-top:20px;
+    font-family: Cursive;
 }
 
 .sidenav a {
@@ -20,7 +29,7 @@
 }
 
 .sidenav a:hover{
-    color:#f1f1f1;
+    color:#444444;
 }
 
 .main{
@@ -28,4 +37,8 @@
     margin-left: 160px;
     padding: 0px 10px;
     text-align:center;
+}
+
+.list{
+    margin-left: 160px;
 }

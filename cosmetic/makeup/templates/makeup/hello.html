@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html>
-
 {% load static %}
 
+<html>
 <head>
-  <title>This is the Welcoming Page</title>
-    <link href="{% static "css/main_sidebar.css" %}" rel="stylesheet"/>
+
+<head>
+  <title>{% block title %}Welcome{% endblock %} - Cosmetic Boutique</title>
+    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
 </head>
 
-<body>
 
 <div class = "sidenav">
     <a href = "/home">Home</a>
@@ -16,14 +16,17 @@
     <a href = "/products">Products</a>
 </div>
 
-
+{% block content %}
 <div id = "welcome-message", class = "main">
     <h1>Welcome to Cosmetic Boutique</h1>
     <h2>You can find everything you want</h2>
+    <img src={% static "images/logo.jfif" %} alt="Logo">
 </div>
+{% endblock %}
 
+</head>
 
-
-
-</body>
 </html>
+
+
+
