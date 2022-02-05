@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from django.urls import reverse
 
 
 class Brand(models.Model):
@@ -26,7 +27,7 @@ class Product(models.Model):
         return "The name is {0}, its price is {1} and its brand is {2}".format(self.name, self.price, self.brand)
 
     def get_absolute_url(self):
-        pass
+        return reverse('products:detail', args=[self.id])
 
 
 # class PostUser(User):

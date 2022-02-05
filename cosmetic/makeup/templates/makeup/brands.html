@@ -1,28 +1,74 @@
-{% extends "makeup/hello.html" %}
-{% load static %}
+{% extends "makeup/base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Brands{% endblock %} - Cosmetic Boutique</title>
-    <link href="{% static "css/bootstrap.css" %}" rel="stylesheet"/>
-    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
+{%  load static %}
 
-    {% block content %}
+{% block content %}
+    <title>Cosmetic Boutique - Brands</title>
 
-        <div class = "list">
 
-            {% for brand in brands %}
-                <h6>{{ brand }}</h6>
-            {% endfor %}
-
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Featured Brands</h1>
+            <div class="d-inline-flex">
+                <p class="m-0">Go back to <a href="{% url 'index' %}">Home</a></p>
+            </div>
         </div>
+    </div>
+    <!-- Page Header End -->
 
-    {% endblock %}
 
-</head>
-<body>
+    <!-- Brands Start -->
+    <div class="container-fluid pt-5">
+        <div class="row px-xl-5">
+            <!-- Brand Display Start -->
+            <div class="col-lg-12 col-md-12">
+                <div class="row pb-3">
+                    {% for brand in brands %}
+                        <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
+                        <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <img class="img-fluid w-100" src={% static "images/logo.jfif" %} alt="">
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-">{{ brand.name }}</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>{{ brand.origin }}</h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+{#                                <a href="{% url 'detail' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>#}
 
-</body>
-</html>
+{#                                <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>#}
+{#                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>#}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Shop Product End -->
+        </div>
+    </div>
+    <!-- Brands End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src={% static "lib/easing/easing.min.js" %}></script>
+    <script src={% static "lib/owlcarousel/owl.carousel.min.js" %}></script>
+
+    <!-- Contact Javascript File -->
+    <script src={% static "mail/jqBootstrapValidation.min.js" %}></script>
+    <script src={% static "mail/contact.js" %}></script>
+
+    <!-- Template Javascript -->
+    <script src={% static "js/main.js" %}></script>
+
+{% endblock content %}
+

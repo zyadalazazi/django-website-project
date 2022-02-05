@@ -14,12 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from makeup.views import welcome_page, product_list, brand_list
+from django.urls import path, include
+from makeup.views import (brand_list, base, index, shop, ProductDetailView,
+                          register, log_in, log_out, password_reset_request,
+                          ProductCreateView, ProductUpdateView, ProductDeleteView)
+from django.contrib.auth.views import PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', welcome_page),
-    path('brands/', brand_list),
-    path('products/', product_list)
+    path('brands/', brand_list, name="brands"),
+    path('base/', base),
+    path('', index, name="index"),
+    path('shop/', shop, name="shop"),
+    path('shop/<int:pk>/', ProductDetailView.as_view(), name="detail"),
+    path('register/', register, name="register"),
+    path('login/', log_in, name="log_in"),
+    path('logout/', log_out, name="log_out"),
+    path('create-product/', ProductCreateView.as_view(template_name='makeup/product-create.html'), name="create-product"),
+    path('update/<int:pk>', ProductUpdateView.as_view(template_name='makeup/product-update.html'), name="update-product"),
+    path('delete/<int:pk>', ProductDeleteView.as_view(template_name='makeup/product-delete.html'), name="update-product"),
+    # path('password_reset/', password_reset_request, name="password_reset"),
+    # path('password_reset/done/', PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
+    # path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),
+    # path('reset/done/', PasswordResetCompleteView.as_view(template_name='password/password_reset_complete.html'), name='password_reset_complete'),
 ]
