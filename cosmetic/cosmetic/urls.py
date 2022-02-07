@@ -32,7 +32,7 @@ urlpatterns = [
     path('logout/', log_out, name="log_out"),
     path('create-product/', ProductCreateView.as_view(template_name='makeup/product-create.html'), name="create-product"),
     path('update/<int:pk>', ProductUpdateView.as_view(template_name='makeup/product-update.html'), name="update-product"),
-    path('delete/<int:pk>', ProductDeleteView.as_view(template_name='makeup/product-delete.html'), name="update-product"),
+    path('delete/<int:pk>', ProductDeleteView.as_view(template_name='makeup/product-delete.html'), name="delete-product"),
     # path('password_reset/', password_reset_request, name="password_reset"),
     # path('password_reset/done/', PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
     # path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),

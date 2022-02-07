@@ -1,6 +1,7 @@
 {% extends "makeup/base.html" %}
 
 {%  load static %}
+{% load in_group %}
 
 {% block content %}
     <title>Cosmetic Boutique - Shop</title>
@@ -109,10 +110,15 @@
                                     <h6>$ {{ product.price }}</h6>
                                 </div>
                             </div>
+                            {% if user.is_authenticated and request.user|in_group:"Administrator"%}
+                                <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a href="{% url 'update-product' product.id %}" class="btn btn-sm text-dark p-0"><i class="fa fa-edit "></i>Update</a>
+                                <a href="{% url 'delete-product' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Delete</a>
+                            </div>
+                            {% endif %}
+
                             <div class="card-footer d-flex justify-content-between bg-light border">
                                 <a href="{% url 'detail' product.id %}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-
-{#                                <a href="detail.html" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>#}
                                 <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                             </div>
                         </div>
