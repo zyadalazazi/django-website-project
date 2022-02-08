@@ -20,6 +20,10 @@ from makeup.views import (brand_list, base, index, shop, ProductDetailView,
                           ProductCreateView, ProductUpdateView, ProductDeleteView)
 from django.contrib.auth.views import PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
+admin.site.site_header = "Cosmetic Boutique Admin Page"
+admin.site.site_title = "Admin Site"
+admin.site.index_title = "Cosmetic Boutique Admin"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('brands/', brand_list, name="brands"),
@@ -33,6 +37,7 @@ urlpatterns = [
     path('create-product/', ProductCreateView.as_view(template_name='makeup/product-create.html'), name="create-product"),
     path('update/<int:pk>', ProductUpdateView.as_view(template_name='makeup/product-update.html'), name="update-product"),
     path('delete/<int:pk>', ProductDeleteView.as_view(template_name='makeup/product-delete.html'), name="delete-product"),
+    path('api/', include('myapi.urls'), name='api'),
     # path('password_reset/', password_reset_request, name="password_reset"),
     # path('password_reset/done/', PasswordResetDoneView.as_view(template_name='password/password_reset_done.html'), name='password_reset_done'),
     # path('reset/<uidb64>/<token>/', PasswordResetConfirmView.as_view(template_name="password/password_reset_confirm.html"), name='password_reset_confirm'),

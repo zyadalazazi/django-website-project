@@ -38,9 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'myapi.apps.MyapiConfig',
     'crispy_forms',
     'makeup',
+    'rest_framework',
+    # 'drf-yasg'
+    # 'admin_interface',
+    # 'flat_responsive',
+    # 'flat',
+    # 'colorfield',
+    # 'django.contrib.admin',
 ]
+
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

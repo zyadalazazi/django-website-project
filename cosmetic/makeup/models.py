@@ -14,6 +14,9 @@ class Brand(models.Model):
     def get_absolute_url(self):
         pass
 
+    class Meta:
+        verbose_name_plural = "Featured Brands"
+
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -28,6 +31,9 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('products:detail', args=[self.id])
+
+    class Meta:
+        verbose_name_plural = "Available Products"
 
 
 # class PostUser(User):
